@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from "react";
-import * as S from "@/pages/seasons/seasons.style";
+import * as S from "@/styles/seasons.style";
 import { MAX_PAGE } from "@/constants/constants";
 import { getSeasons } from "@/apis/api/seasons";
 
