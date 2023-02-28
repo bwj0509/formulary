@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <S.Header>
       <S.LogoWrap>
-        {/* <Fomulalogo width="80px" /> */}
+        <Fomulalogo width="80px" />
         <S.LogoTitle>Fomulary</S.LogoTitle>
       </S.LogoWrap>
       <S.HamburgerBtn onClick={handleSideOpen}></S.HamburgerBtn>
