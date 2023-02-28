@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <div>123테스트입니다.</div>
+      <div>메인페이지 입니다.</div>
     </>
   );
 }
