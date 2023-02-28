@@ -1,4 +1,4 @@
-import axios from "axios";
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from "react";
 import * as S from "@/pages/seasons/seasons.style";
 import { MAX_PAGE } from "@/constants/constants";
@@ -17,6 +17,7 @@ export default function MenuItem() {
 
   useEffect(() => {
     getSeasonsData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const getSeasonsData = async () => {
