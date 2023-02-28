@@ -9,7 +9,7 @@ interface SeasonData {
   url: string;
 }
 
-export default function MenuItem() {
+export default function Seasons() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);
