@@ -1,4 +1,4 @@
-import * as S from "@/pages/index.Style";
+import * as S from "@/styles/index.style";
 import { TypeAnimation } from "react-type-animation";
 import Fomulalogo from "public/svg/fomulalogo.svg";
 import f1mainimg from "public/images/f1history.jpg";
