@@ -18,6 +18,7 @@ export default function Seasons() {
   useEffect(() => {
     getSeasonsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    console.log(page);
   }, [page]);
 
   const getSeasonsData = async () => {
