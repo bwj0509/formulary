@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Fomulalogo from "public/svg/fomulalogo.svg";
-import Sidebar from "@/components/common/header/sideBar";
+import Sidebar from "@/components/common/sidebar/sidebar";
 import * as S from "@/components/common/header/header.style";
+import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Header() {
@@ -13,10 +14,12 @@ export default function Header() {
 
   return (
     <S.Header>
-      <S.LogoWrap>
-        <Fomulalogo width="80px" />
-        <S.LogoTitle>Fomulary</S.LogoTitle>
-      </S.LogoWrap>
+      <Link href="/">
+        <S.LogoWrap>
+          <Fomulalogo width="80px" />
+          <S.LogoTitle>Fomulary</S.LogoTitle>
+        </S.LogoWrap>
+      </Link>
       <S.HamburgerBtn onClick={handleSideOpen}></S.HamburgerBtn>
       <Sidebar isSideOpen={isSideOpen} setIsSideOpen={setIsSideOpen} />
     </S.Header>

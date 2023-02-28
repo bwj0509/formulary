@@ -17,3 +17,16 @@ export const SideBarWrap = styled.div<{ isSideOpen: boolean }>`
 export const CloseBtn = styled(AiOutlineClose)`
   cursor: pointer;
 `;
+
+export const MenuList = styled.div``;
+
+export const MenuItem = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  padding: 20px 10px;
+  cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.f1Red};
+  }
+`;
