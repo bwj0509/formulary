@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import * as S from "@/styles/seasons.style";
 import { MAX_PAGE } from "@/constants/constants";
 import { getSeasons } from "@/apis/api/seasons";
+import Link from "next/link";
 
 interface SeasonData {
   season: string;
@@ -61,7 +62,9 @@ export default function Seasons() {
     <S.Wrap>
       {data.map((season: SeasonData) => (
         <div key={season.season}>
-          <S.Box>{season.season}</S.Box>
+          <Link href={`/seasons/${season.season}`}>
+            <S.Box>{season.season}</S.Box>
+          </Link>
         </div>
       ))}
       <S.Target ref={target}>타켓요소</S.Target>

@@ -12,11 +12,17 @@ export const Box = styled.div`
   width: 200px;
   height: 100px;
   margin: 10px;
-  background-color: #c9e6ff;
+  background-color: #1d1d1d;
+  color: white;
   font-size: 30px;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+  transition: all ease-in 100ms;
+  cursor: pointer;
+  &:hover {
+    font-size: 40px;
+  }
 `;
 
 export const Target = styled.div`

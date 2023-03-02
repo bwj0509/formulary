@@ -10,3 +10,12 @@ export const getSeasons = async (page: number) => {
     console.log(error);
   }
 };
+
+export const getDriverByYear = async (year: number) => {
+  try {
+    const { data } = await defaultInstance.get(`${year}/drivers.json`);
+    return data.MRData.DriverTable.Drivers;
+  } catch (error) {
+    console.log(error);
+  }
+};
