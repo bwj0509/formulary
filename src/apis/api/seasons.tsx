@@ -11,10 +11,10 @@ export const getSeasons = async (page: number) => {
   }
 };
 
-export const getDriverByYear = async (year: number) => {
+export const getStandingByYear = async (year: number) => {
   try {
-    const { data } = await defaultInstance.get(`${year}/drivers.json`);
-    return data.MRData.DriverTable.Drivers;
+    const { data } = await defaultInstance.get(`${year}/driverStandings.json`);
+    return data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
   } catch (error) {
     console.log(error);
   }

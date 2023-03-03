@@ -13,7 +13,9 @@ export default function Season() {
           <S.Box>Drivers</S.Box>
         </Link>
         <S.Box>Races</S.Box>
-        <S.Box>Driver Standings</S.Box>
+        <Link href={`/seasons/driverStanding/${router.query.season}`}>
+          <S.Box>Driver Standings</S.Box>
+        </Link>
         <S.Box>Constructor Standings</S.Box>
       </S.Container>
     </>

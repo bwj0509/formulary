@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getStandingByYear } from "@/apis/api/seasons";
 import Table from "@/components/table/table";
 import * as S from "@/styles/year.style";
+import BoxChart from "@/components/chart/boxChart";
 
 export default function Year() {
   const [result, setResult] = useState(null);
@@ -22,28 +23,7 @@ export default function Year() {
   }
   return (
     <S.TableWrap>
-      <S.TitleContainer>
-        <div>
-          <div>Season</div>
-          <div>2020</div>
-        </div>
-        <div>
-          <div>Drivers</div>
-          <div>22</div>
-        </div>
-        <div>
-          <div>Nationality</div>
-          <div>10</div>
-        </div>
-        <div>
-          <div>Races</div>
-          <div>25</div>
-        </div>
-        <div>
-          <div>Constructs</div>
-          <div>10</div>
-        </div>
-      </S.TitleContainer>
+      <BoxChart result={result}></BoxChart>
       <Table result={result} />
     </S.TableWrap>
   );
