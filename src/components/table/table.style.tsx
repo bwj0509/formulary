@@ -1,0 +1,4 @@
+import styled from "styled-components";
+export const Std = styled.td`
+  text-align: center;
+`;

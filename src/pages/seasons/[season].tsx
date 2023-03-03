@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import * as S from "@/styles/year.style";
+import * as S from "@/styles/season.style";
 import Link from "next/link";
 
 export default function Season() {

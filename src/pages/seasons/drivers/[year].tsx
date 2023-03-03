@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getDriverByYear } from "@/apis/api/seasons";
+import Table from "@/components/table/table";
+import * as S from "@/styles/year.style";
 
 export default function Year() {
   const [drivers, setDrivers] = useState(null);
@@ -12,6 +14,7 @@ export default function Year() {
       setDrivers(res);
       setLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
@@ -19,15 +22,8 @@ export default function Year() {
   }
 
   return (
-    <div>
-      {drivers.map((driver) => (
-        <div key={driver.code}>
-          <div>
-            {driver.code} : {driver.givenName} {driver.driverId}
-          </div>
-          <div></div>
-        </div>
-      ))}
-    </div>
+    <S.TableWrap>
+      <Table drivers={drivers} />
+    </S.TableWrap>
   );
 }
