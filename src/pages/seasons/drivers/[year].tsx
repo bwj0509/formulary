@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { getStandingByYear } from "@/apis/api/seasons";
 import Table from "@/components/table/table";
 import * as S from "@/styles/year.style";
+import axios from "axios";
+import DriverCard from "@/components/card/driverCard";
 
 export default function Year() {
   const [result, setResult] = useState(null);
@@ -13,6 +15,7 @@ export default function Year() {
     getStandingByYear(Number(router.query.year)).then((res) => {
       setResult(res);
       setLoading(false);
+      console.log(res);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -20,31 +23,12 @@ export default function Year() {
   if (loading) {
     return <div>로딩중...</div>;
   }
+
   return (
-    <S.TableWrap>
-      <S.TitleContainer>
-        <div>
-          <div>Season</div>
-          <div>2020</div>
-        </div>
-        <div>
-          <div>Drivers</div>
-          <div>22</div>
-        </div>
-        <div>
-          <div>Nationality</div>
-          <div>10</div>
-        </div>
-        <div>
-          <div>Races</div>
-          <div>25</div>
-        </div>
-        <div>
-          <div>Constructs</div>
-          <div>10</div>
-        </div>
-      </S.TitleContainer>
-      <Table result={result} />
-    </S.TableWrap>
+    <S.CardContainer>
+      {result.map((driver, index) => (
+        <DriverCard key={index} driver={driver} />
+      ))}
+    </S.CardContainer>
   );
 }

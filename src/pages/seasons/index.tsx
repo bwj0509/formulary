@@ -15,7 +15,7 @@ export default function Seasons() {
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const target = useRef(null);
-
+  const skeletonArr = Array.from({ length: 12 }, (_, index) => index + 1);
   useEffect(() => {
     getSeasonsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,18 +31,18 @@ export default function Seasons() {
   const callbackFunction = (entries) => {
     const [entry] = entries;
     if (entry.isIntersecting && page < MAX_PAGE) {
-      setPage(page + 10);
+      setPage((prev) => page + 20);
     }
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const options = {
     root: null,
-    rootMargin: "0px",
-    threshold: 1,
+    threshold: 0.7,
   };
 
   useEffect(() => {
+    console.log("useEffect 실행!");
     const observer = new IntersectionObserver(callbackFunction, options);
     if (target.current) {
       observer.observe(target.current);
@@ -55,19 +55,28 @@ export default function Seasons() {
   }, [target, options]);
 
   if (loading) {
-    return <div>로딩중입니다.</div>;
+    return (
+      <S.Wrap>
+        {skeletonArr.map((_, index) => (
+          <S.SkeltonBox key={index}>Loading...</S.SkeltonBox>
+        ))}
+      </S.Wrap>
+    );
   }
 
   return (
     <S.Wrap>
-      {data.map((season: SeasonData) => (
-        <div key={season.season}>
+      {data.map((season: SeasonData, index: number) => (
+        <div key={index}>
           <Link href={`/seasons/${season.season}`}>
             <S.Box>{season.season}</S.Box>
           </Link>
         </div>
       ))}
-      <S.Target ref={target}>타켓요소</S.Target>
+      <S.SkeltonBox page={page}>Loading...</S.SkeltonBox>
+      <S.SkeltonBox page={page} ref={target}>
+        Loading...
+      </S.SkeltonBox>
     </S.Wrap>
   );
 }

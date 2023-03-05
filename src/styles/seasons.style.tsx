@@ -1,15 +1,24 @@
 import styled from "styled-components";
+import { MAX_PAGE } from "@/constants/constants";
 
 export const Wrap = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
+`;
+
+export const BoxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const Box = styled.div`
   display: flex;
-  width: 200px;
+  width: 150px;
   height: 100px;
   margin: 10px;
   background-color: #1d1d1d;
@@ -24,9 +33,8 @@ export const Box = styled.div`
     font-size: 40px;
   }
 `;
-
-export const Target = styled.div`
-  width: 300px;
-  background-color: #ffb3b3;
-  visibility: hidden;
+export const SkeltonBox = styled(Box)<{ page?: number }>`
+  background-color: #858585;
+  font-size: 20px;
+  display: ${(props) => props.page === MAX_PAGE && "none"};
 `;
