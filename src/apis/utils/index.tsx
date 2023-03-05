@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://ergast.com/api/f1/";
+const BASE_URL = "https://ergast.com/api/f1/";
 
 const axiosApi = (url, options?) => {
   const instance = axios.create({ baseURL: url, ...options });
