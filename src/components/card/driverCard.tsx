@@ -2,7 +2,7 @@ import * as S from "@/components/card/driverCard.style";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Link from "next/link";
 
-export default function DriverCard({ driver, key }) {
+export default function DriverCard({ driver }) {
   const index = driver.position.padStart(2, 0);
   const driverName = driver.Driver.givenName + " " + driver.Driver.familyName;
   const team = driver.Constructors[0].name;

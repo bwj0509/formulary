@@ -1,34 +1,31 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { getStandingByYear } from "@/apis/api/seasons";
-import Table from "@/components/table/table";
 import * as S from "@/styles/year.style";
-import axios from "axios";
 import DriverCard from "@/components/card/driverCard";
+import Axios from "axios";
+import Head from "next/head";
 
-export default function Year() {
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  console.log(router.query.year);
-  useEffect(() => {
-    getStandingByYear(Number(router.query.year)).then((res) => {
-      setResult(res);
-      setLoading(false);
-      console.log(res);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (loading) {
-    return <div>로딩중...</div>;
-  }
-
+export default function Year({ drivers }) {
   return (
     <S.CardContainer>
-      {result.map((driver, index) => (
-        <DriverCard key={index} driver={driver} />
-      ))}
+      <Head>
+        <title>{drivers[0].Driver.familyName}</title>
+        <meta name="nationality" content={drivers[0].Driver.nationality}></meta>
+      </Head>
+      {drivers &&
+        drivers.map((driver, index) => (
+          <DriverCard key={index} driver={driver} />
+        ))}
     </S.CardContainer>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { year } = context.query;
+  const apiUrl = `https://ergast.com/api/f1/${year}/driverStandings.json`;
+  const res = await Axios.get(apiUrl);
+  const data = res.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+  return {
+    props: {
+      drivers: data,
+    },
+  };
 }
