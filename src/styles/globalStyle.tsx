@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 *{
   margin: 0;
+  
 }
   html {
     box-sizing: border-box;
@@ -13,4 +14,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
   }
   a { cursor: pointer; text-decoration: none; color:black; }
+
+
+
+
+
+
 `;
