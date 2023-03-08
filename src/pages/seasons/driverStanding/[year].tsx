@@ -9,14 +9,16 @@ export default function Year() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  console.log(router.query.year);
+  const year = router.query.year;
   useEffect(() => {
-    getStandingByYear(Number(router.query.year)).then((res) => {
-      setResult(res);
-      setLoading(false);
-    });
+    if (year) {
+      getStandingByYear(Number(router.query.year)).then((res) => {
+        setResult(res);
+        setLoading(false);
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [year]);
 
   if (loading) {
     return <div>로딩중...</div>;

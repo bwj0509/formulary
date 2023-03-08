@@ -15,6 +15,7 @@ import { MIN_NUM_DRIVER } from "@/constants/constants";
 import { TiMinusOutline, TiPlusOutline } from "react-icons/ti";
 
 export default function BoxChart({ result }: any) {
+  console.log(result);
   const [driverNum, setDriverNum] = useState(3);
   const topPointData = topPointDriver(result).slice(0, driverNum);
   const topWinData = topWinDriver(result).slice(0, driverNum);
