@@ -4,27 +4,34 @@ import Fomulalogo from "public/svg/fomulalogo.svg";
 import f1mainimg from "public/images/f1history.jpg";
 import Button from "@/components/common/button/button";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getNextRace } from "@/apis/api/schedule";
 import NextRace from "@/components/race/nextRace";
 
 export default function Home() {
   const router = useRouter();
-
+  const [nextRace, setNextRace] = useState(null);
+  const [loading, setLoading] = useState(true);
   const handleMovePage = () => {
     router.push("/seasons");
   };
 
   useEffect(() => {
     getNextRace().then((res) => {
-      console.log(res);
+      setNextRace(res);
+      setLoading(false);
     });
   }, []);
+
+  if (loading) {
+    return <div>로딩중</div>;
+  }
+
   return (
     <>
       <S.MainWrap>
         {/* <S.MainImg src={f1mainimg} alt="f1Img" width={300} height={200} /> */}
-        <NextRace />
+        <NextRace nextRace={nextRace} />
         <S.Title>We offer you</S.Title>
         <TypeAnimation
           sequence={[

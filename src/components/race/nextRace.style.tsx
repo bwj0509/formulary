@@ -77,14 +77,13 @@ export const ScheduleContainer = styled.div`
   border-radius: 10px;
   background-color: #38383f;
 `;
-export const ScheduleWrap = styled.div`
+export const ScheduleWrap = styled.div<{ bottomLine?; bottomMargin? }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 5px;
-`;
-export const Hr = styled.hr`
-  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: ${(props) => props.bottomLine && "1px solid #949498"};
+  margin-bottom: ${(props) => props.bottomMargin && "5px"};
 `;
 
 export const SessionName = styled.span`
