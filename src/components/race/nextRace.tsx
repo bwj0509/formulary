@@ -1,12 +1,42 @@
 import * as S from "@/components/race/nextRace.style";
 import { getMonthName } from "@/utils/getMonth";
+import { getDay } from "@/utils/getDay";
+import { useState, useEffect } from "react";
+import { calculateRemainTime } from "@/utils/calculateRemainTime";
+import { getDate } from "@/utils/getDate";
+import { getTime } from "@/utils/getTime";
 
 export default function NextRace({ nextRace }) {
-  console.log(nextRace);
-  const { round, FirstPractice, date, Circuit, raceName } = nextRace;
-  const startDate = FirstPractice.date.split("-")[2];
-  const endDate = date.split("-")[2];
-  const day = getMonthName(date);
+  const {
+    round,
+    date,
+    Circuit,
+    raceName,
+    time,
+    FirstPractice,
+    SecondPractice,
+    ThirdPractice,
+    Qualifying,
+  } = nextRace;
+
+  // const startDate = FirstPractice.date.split("-")[2];
+  const startDate = getDate(`${FirstPractice.date}:${FirstPractice.time}`);
+  const endDate = getDate(`${date}:${time}`);
+  const monthName = getMonthName(date);
+  const [remainTime, setRemainTime] = useState(
+    calculateRemainTime(new Date(), new Date(`${date}:${time}`))
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRemainTime(
+        calculateRemainTime(new Date(), new Date(`${date}:${time}`))
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <S.Container>
@@ -14,7 +44,7 @@ export default function NextRace({ nextRace }) {
       <S.RaceDateContainer>
         <S.RaceDate>
           <S.RaceDateRange>{`${startDate} - ${endDate}`}</S.RaceDateRange>
-          <S.RaceDay>{day}</S.RaceDay>
+          <S.RaceDay>{monthName}</S.RaceDay>
         </S.RaceDate>
         <S.Img
           src="/images/saudi.png"
@@ -26,36 +56,59 @@ export default function NextRace({ nextRace }) {
       <S.RaceName>{Circuit.Location.country}</S.RaceName>
       <S.RaceFullName>{`FORMULA 1 STC ${raceName} 2023`}</S.RaceFullName>
       <S.Clock>
-        03<S.Small> day</S.Small>
-        00<S.Small> hour</S.Small>
-        00<S.Small> min</S.Small>
-        00<S.Small> sec</S.Small>
+        {remainTime[0].toString().padStart(2, "0")}
+        <S.Small> day</S.Small>
+        {remainTime[1].toString().padStart(2, "0")}
+        <S.Small> hour</S.Small>
+        {remainTime[2].toString().padStart(2, "0")}
+        <S.Small> min</S.Small>
+        {remainTime[3].toString().padStart(2, "0")}
+        <S.Small> sec</S.Small>
+        {/* {remainTime[4].toString().slice(0, 1)}
+        <S.Small> mil</S.Small> */}
       </S.Clock>
       <S.ScheduleContainer>
         <S.ScheduleWrap>
           <S.SessionName>PRACTICE 1</S.SessionName>
-          <S.SessionDay>FRI</S.SessionDay>
-          <S.SessionTime>20:00</S.SessionTime>
+          <S.SessionDay>
+            {getDay(`${FirstPractice.date}:${FirstPractice.time}`)}
+          </S.SessionDay>
+          <S.SessionTime>
+            {getTime(`${FirstPractice.date}:${FirstPractice.time}`)}
+          </S.SessionTime>
         </S.ScheduleWrap>
         <S.ScheduleWrap>
           <S.SessionName>PRACTICE 2</S.SessionName>
-          <S.SessionDay>FRI</S.SessionDay>
-          <S.SessionTime>20:00</S.SessionTime>
+          <S.SessionDay>
+            {getDay(`${SecondPractice.date}:${SecondPractice.time}`)}
+          </S.SessionDay>
+          <S.SessionTime>
+            {getTime(`${SecondPractice.date}:${SecondPractice.time}`)}
+          </S.SessionTime>
         </S.ScheduleWrap>
         <S.ScheduleWrap bottomLine bottomMargin>
           <S.SessionName>PRACTICE 3</S.SessionName>
-          <S.SessionDay>FRI</S.SessionDay>
-          <S.SessionTime>20:00</S.SessionTime>
+          <S.SessionDay>
+            {getDay(`${ThirdPractice.date}:${ThirdPractice.time}`)}
+          </S.SessionDay>
+          <S.SessionTime>
+            {getTime(`${ThirdPractice.date}:${ThirdPractice.time}`)}
+          </S.SessionTime>
         </S.ScheduleWrap>
         <S.ScheduleWrap>
-          <S.SessionName>PRACTICE 3</S.SessionName>
-          <S.SessionDay>FRI</S.SessionDay>
-          <S.SessionTime>20:00</S.SessionTime>
+          <S.SessionName>Qualifying</S.SessionName>
+          <S.SessionDay>
+            {getDay(`${Qualifying.date}:${Qualifying.time}`)}
+          </S.SessionDay>
+          <S.SessionTime>
+            {getTime(`${Qualifying.date}:${Qualifying.time}`)}
+          </S.SessionTime>
         </S.ScheduleWrap>
         <S.ScheduleWrap>
-          <S.SessionName>RACE</S.SessionName>
-          <S.SessionDay>FRI</S.SessionDay>
-          <S.SessionTime>20:00</S.SessionTime>
+          <S.SessionName>Race</S.SessionName>
+
+          <S.SessionDay>{getDay(`${date}:${time}`)}</S.SessionDay>
+          <S.SessionTime>{getTime(`${date}:${time}`)}</S.SessionTime>
         </S.ScheduleWrap>
       </S.ScheduleContainer>
     </S.Container>

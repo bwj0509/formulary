@@ -70,6 +70,7 @@ export const Clock = styled.div`
 
 export const Small = styled.span`
   font-size: 12px;
+  margin-right: 5px;
 `;
 
 export const ScheduleContainer = styled.div`
