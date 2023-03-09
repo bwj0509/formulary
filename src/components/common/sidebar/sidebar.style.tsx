@@ -23,10 +23,13 @@ export const MenuList = styled.div``;
 export const MenuItem = styled.div`
   font-size: 18px;
   font-weight: 700;
-  padding: 20px 10px;
+  padding: 10px 10px;
   cursor: pointer;
+  text-align: center;
 
   &:hover {
     color: ${(props) => props.theme.colors.f1Red};
   }
 `;
+
+export const Test = styled.div``;

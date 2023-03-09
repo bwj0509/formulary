@@ -3,12 +3,17 @@ import Image from "next/image";
 import saudibg from "/images/saudibg.jpg";
 
 export const Container = styled.main`
+  box-sizing: border-box;
   width: 100%;
   background-color: #15151e;
   color: white;
   padding: 10px;
   text-align: left;
   margin-bottom: 20px;
+`;
+
+export const SkeletonContainer = styled(Container)`
+  opacity: 0.7;
 `;
 
 export const Round = styled.div`

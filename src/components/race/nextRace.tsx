@@ -64,8 +64,6 @@ export default function NextRace({ nextRace }) {
         <S.Small> min</S.Small>
         {remainTime[3].toString().padStart(2, "0")}
         <S.Small> sec</S.Small>
-        {/* {remainTime[4].toString().slice(0, 1)}
-        <S.Small> mil</S.Small> */}
       </S.Clock>
       <S.ScheduleContainer>
         <S.ScheduleWrap>

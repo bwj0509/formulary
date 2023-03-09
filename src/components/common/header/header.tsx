@@ -1,27 +1,36 @@
 import { useState } from "react";
 import Fomulalogo from "public/svg/fomulalogo.svg";
-import Sidebar from "@/components/common/sidebar/sidebar";
 import * as S from "@/components/common/header/header.style";
 import Link from "next/link";
-import { GiHamburgerMenu } from "react-icons/gi";
+import SidebarMenuItem from "@/components/common/sidebar/MenuItem";
 
 export default function Header() {
   const [isSideOpen, setIsSideOpen] = useState(false);
 
-  const handleSideOpen = () => {
-    setIsSideOpen(true);
+  const handleSideStatus = () => {
+    setIsSideOpen((prev) => !prev);
   };
 
   return (
-    <S.Header>
-      <Link href="/">
-        <S.LogoWrap>
-          <Fomulalogo width="80px" />
-          <S.LogoTitle>Fomulary</S.LogoTitle>
-        </S.LogoWrap>
-      </Link>
-      <S.HamburgerBtn onClick={handleSideOpen}></S.HamburgerBtn>
-      <Sidebar isSideOpen={isSideOpen} setIsSideOpen={setIsSideOpen} />
-    </S.Header>
+    <div>
+      <S.Header>
+        <Link href="/">
+          <S.LogoWrap>
+            <Fomulalogo width="80px" />
+          </S.LogoWrap>
+        </Link>
+        <S.HamburgerBtn onClick={handleSideStatus}></S.HamburgerBtn>
+        {/* <Sidebar isSideOpen={isSideOpen} setIsSideOpen={setIsSideOpen} /> */}
+      </S.Header>
+      <S.SidebarItemList isSideOpen={isSideOpen}>
+        <SidebarMenuItem url="seasons" setIsSideOpen={setIsSideOpen}>
+          Past Seasons
+        </SidebarMenuItem>
+        <SidebarMenuItem setIsSideOpen={setIsSideOpen}>
+          Current Season
+        </SidebarMenuItem>
+        <SidebarMenuItem setIsSideOpen={setIsSideOpen}>About</SidebarMenuItem>
+      </S.SidebarItemList>
+    </div>
   );
 }

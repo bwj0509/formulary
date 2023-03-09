@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getNextRace } from "@/apis/api/schedule";
 import NextRace from "@/components/race/nextRace";
+import NextRaceSkeleton from "@/components/race/nextRaceSkeleton";
 
 export default function Home() {
   const router = useRouter();
@@ -24,7 +25,11 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <div>로딩중</div>;
+    return (
+      <S.MainWrap>
+        <NextRaceSkeleton />
+      </S.MainWrap>
+    );
   }
 
   return (
@@ -35,11 +40,11 @@ export default function Home() {
         <S.Title>We offer you</S.Title>
         <TypeAnimation
           sequence={[
-            "80 Seasons",
+            "74 Seasons",
             2000,
-            "565 Drivers",
+            "858 Drivers",
             2000,
-            "7884 Races",
+            "1120 Races",
             2000,
           ]}
           wrapper="h2"

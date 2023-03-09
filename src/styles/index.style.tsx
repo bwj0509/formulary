@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const MainWrap = styled.section`
   text-align: center;
-  padding: 50px 0px;
+  padding: 0px 0px;
 `;
 export const Title = styled.h3``;
 
