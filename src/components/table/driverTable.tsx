@@ -1,7 +1,7 @@
 import * as S from "@/components/table/table.style";
 import { RiMedalFill } from "react-icons/ri";
 
-export default function Table({ result }) {
+export default function DriverTable({ result }) {
   return (
     <S.Table>
       <S.Thead>

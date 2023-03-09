@@ -4,6 +4,7 @@ import * as S from "@/styles/seasons.style";
 import { MAX_PAGE } from "@/constants/constants";
 import { getSeasons } from "@/apis/api/seasons";
 import Link from "next/link";
+import { WIHTE_SEASONS } from "@/constants/constants";
 
 interface SeasonData {
   season: string;
@@ -63,13 +64,15 @@ export default function Seasons() {
       </S.Wrap>
     );
   }
-
+  console.log();
   return (
     <S.Wrap>
       {data.map((season: SeasonData, index: number) => (
         <div key={index}>
           <Link href={`/seasons/${season.season}`}>
-            <S.Box>{season.season}</S.Box>
+            <S.Box white={WIHTE_SEASONS.includes(season.season)}>
+              {season.season}
+            </S.Box>
           </Link>
         </div>
       ))}

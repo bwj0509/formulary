@@ -16,15 +16,15 @@ export const BoxContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Box = styled.div`
+export const Box = styled.div<{ white?: boolean }>`
   display: flex;
   width: 150px;
-  height: 100px;
-  margin: 10px;
-  background-color: #1d1d1d;
-  color: white;
+  height: 150px;
+  /* margin: 10px; */
+  background-color: ${(props) => (props.white ? "white" : "#1d1d1d")};
+  color: ${(props) => (props.white ? "#1d1d1d" : "white")};
   font-size: 30px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   justify-content: center;
   align-items: center;
   transition: all ease-in 100ms;

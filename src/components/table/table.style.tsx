@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
-  width: 100%;
   border: 1px solid #ddd;
   border-collapse: collapse;
-  margin: 20px 0px;
+  margin: 20px 10px;
   color: #333333;
 `;
 

@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { getDriverStandingByYear } from "@/apis/api/seasons";
-import DriverTable from "@/components/table/driverTable";
+import { getConstructorStandingByYear } from "@/apis/api/seasons";
 import * as S from "@/styles/year.style";
-import BoxChart from "@/components/chart/boxChart";
+import ConstructorTable from "@/components/table/constructorTable";
 
 export default function Year() {
   const [result, setResult] = useState(null);
@@ -12,7 +11,8 @@ export default function Year() {
   const year = router.query.year;
   useEffect(() => {
     if (year) {
-      getDriverStandingByYear(Number(router.query.year)).then((res) => {
+      getConstructorStandingByYear(Number(router.query.year)).then((res) => {
+        console.log(res);
         setResult(res);
         setLoading(false);
       });
@@ -25,8 +25,8 @@ export default function Year() {
   }
   return (
     <S.TableWrap>
-      <BoxChart result={result}></BoxChart>
-      <DriverTable result={result} />
+      {/* <BoxChart result={result}></BoxChart> */}
+      <ConstructorTable result={result} />
     </S.TableWrap>
   );
 }
