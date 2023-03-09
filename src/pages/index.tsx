@@ -37,7 +37,7 @@ export default function Home() {
       <S.MainWrap>
         {/* <S.MainImg src={f1mainimg} alt="f1Img" width={300} height={200} /> */}
         <NextRace nextRace={nextRace} />
-        <S.Title>We offer you</S.Title>
+        <S.MainTitle>We offer you</S.MainTitle>
         <TypeAnimation
           sequence={[
             "74 Seasons",

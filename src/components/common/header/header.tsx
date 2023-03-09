@@ -29,7 +29,9 @@ export default function Header() {
         <SidebarMenuItem setIsSideOpen={setIsSideOpen}>
           Current Season
         </SidebarMenuItem>
-        <SidebarMenuItem setIsSideOpen={setIsSideOpen}>About</SidebarMenuItem>
+        <SidebarMenuItem url="about" setIsSideOpen={setIsSideOpen}>
+          About
+        </SidebarMenuItem>
       </S.SidebarItemList>
     </div>
   );

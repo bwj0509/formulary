@@ -5,6 +5,7 @@ export const MainWrap = styled.section`
   text-align: center;
   padding: 0px 0px;
 `;
+export const MainTitle = styled.h1``;
 export const Title = styled.h3``;
 
 export const MainImg = styled(Image)`
