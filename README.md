@@ -1,38 +1,149 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/45286570/224336995-5a15273d-3669-494d-a958-a8dc4c363967.png" width="400px"/>
+    <br/>
+    <h2>F1 Information Platform</h2>
+    <h4>Our service provides F1 recent game schedules, past players, and team results.</h4>
+</div>
 
-## Getting Started
+<br>
+<br>
+<br>
 
-First, run the development server:
+## 🛠 Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+<table>
+<tr>
+ <td align="center">Language</td>
+ <td>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=ffffff"/>
+ </td>
+</tr>
+<tr>
+ <td align="center">Framework</td>
+ <td>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=ffffff"/>
+ </td>
+</tr>
+<tr>
+ <td align="center">Library</td>
+ <td>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=ffffff"/>&nbsp  
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=Storybook&logoColor=ffffff"/>
+<br>
+<img src="https://img.shields.io/badge/Axios-6028e0?style=for-the-badge&logo=Axios&logoColor=ffffff"/>&nbsp 
+  </td>
+</tr>
+
+<tr>
+ <td align="center">Package</td>
+ <td>
+    <img src="https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=Npm&logoColor=white"/>&nbsp 
+  </td>
+</tr>
+
+<tr>
+ <td align="center">Formatter</td>
+ <td>
+  <img src="https://img.shields.io/badge/Prettier-373338?style=for-the-badge&logo=Prettier&logoColor=ffffff"/>&nbsp 
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=ffffff"/>&nbsp 
+ </td>
+</tr>
+
+<tr>
+ <td align="center">IDE</td>
+ <td>
+    <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white"/>&nbsp
+</tr>
+</table>
+
+<br>
+<br>
+
+## 🕐 Develop period
+
+    2023.02.27 ~ 2023.03.10
+
+<br>
+<br>
+
+# ⭐Feature
+
+## 1️⃣ Onboarding
+
+![온보딩메인](https://user-images.githubusercontent.com/45286570/224339669-c54d6722-fb54-436a-8ba5-45b490d74e7f.gif)
+
+- 처음 접속했을 때 보여지는 화면
+- 다음 경기일정에 대한 정보를 제공
+
+<br>
+
+## 2️⃣ Select Seasons
+
+![시즌 선택](https://user-images.githubusercontent.com/45286570/224341650-6cca2c3f-c0c5-4e89-b6a6-e5c5a478cf62.gif)
+
+- 정보를 보고싶은 시즌을 선택 가능(1950 ~ 2023)
+- IntersectionObserver를 이용한 무한 스크롤 구현
+
+<br>
+
+## 3️⃣ Select Contents
+
+![내용 선택](https://user-images.githubusercontent.com/45286570/224341148-3e6e6823-dc1d-4dca-a956-1b311d407709.gif)
+
+- 해당 시즌의 원하는 내용을 선택 가능(선수, 경기, 선수 순위, 팀 순위)
+
+<br>
+
+## 4️⃣ Driver Information
+
+![드라이버 정보](https://user-images.githubusercontent.com/45286570/224342373-dc074307-ef67-4650-b4f9-4c53e406745a.gif)
+
+- 해당 시즌에 참여한 선수 정보를 제공
+- 아이콘을 통한 추가 정보 링크 이동
+
+<br>
+
+## 5️⃣ Ranking of players and teams
+
+![선수 및 팀 순위](https://user-images.githubusercontent.com/45286570/224342981-9ff7f00a-4f1b-49d2-9468-3cf3717f7998.gif)
+
+- 해당 시즌에 참여한 선수 랭킹 및 팀 랭킹 제공
+- lottie 라이브러리를 이용한 로딩처리
+- 차트를 이용한 데이터 시각화 구현
+
+<br>
+
+## 6️⃣ About the service
+
+![서비스 설명](https://user-images.githubusercontent.com/45286570/224343612-e13778ab-2d17-40fd-8ad2-9f8d7ebadc5b.gif)
+
+- 서비스의 목적 및 제공 내용 설명
+
+<br>
+
+<br>
+
+# 💾 Start
+
+### Clone project
+
+```
+git clone https://github.com/bwj0509/formulary.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+This package is distributed via npm.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+$ npm install
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    npm run dev : Run project
+    npm run build : Next build
+    npm run start : Next start
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br>
+<br>
