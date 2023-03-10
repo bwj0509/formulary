@@ -4,6 +4,8 @@ import { getDriverStandingByYear } from "@/apis/api/seasons";
 import DriverTable from "@/components/table/driverTable";
 import * as S from "@/styles/year.style";
 import BoxChart from "@/components/chart/boxChart";
+import Lottie from "lottie-react";
+import { default as lottie } from "public/lottie/astronot.json";
 
 export default function Year() {
   const [result, setResult] = useState(null);
@@ -21,7 +23,7 @@ export default function Year() {
   }, [year]);
 
   if (loading) {
-    return <div>로딩중...</div>;
+    return <Lottie animationData={lottie} />;
   }
   return (
     <S.TableWrap>

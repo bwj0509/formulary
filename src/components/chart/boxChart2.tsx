@@ -11,8 +11,6 @@ import {
   LabelList,
 } from "recharts";
 import {
-  topPointDriver,
-  topWinDriver,
   topPointConstructor,
   topWinsConstructor,
 } from "@/utils/chartDataConvert";
