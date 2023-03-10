@@ -10,37 +10,38 @@ import {
   Legend,
   LabelList,
 } from "recharts";
-import { topPointDriver, topWinDriver } from "@/utils/chartDataConvert";
+import {
+  topPointDriver,
+  topWinDriver,
+  topPointConstructor,
+  topWinsConstructor,
+} from "@/utils/chartDataConvert";
 import { MIN_NUM_DRIVER } from "@/constants/constants";
 import { TiMinusOutline, TiPlusOutline } from "react-icons/ti";
 
 export default function BoxChart({ result }: any) {
-  console.log(result);
-  const [driverNum, setDriverNum] = useState(3);
-  const topPointData = topPointDriver(result).slice(0, driverNum);
-  const topWinData = topWinDriver(result).slice(0, driverNum);
-  const MAX_NUM_DRIVER = result.length;
-  console.log(topPointData);
-
+  const [constructorNum, setConstructorNum] = useState(3);
+  const MAX_NUM_CONSTRUCTOR = result.length;
   const handleAddNum = () => {
-    if (driverNum < MAX_NUM_DRIVER) {
-      setDriverNum((prev) => prev + 1);
+    if (constructorNum < MAX_NUM_CONSTRUCTOR) {
+      setConstructorNum((prev) => prev + 1);
     }
   };
 
   const handleMinusNum = () => {
-    if (driverNum > MIN_NUM_DRIVER) {
-      setDriverNum((prev) => prev - 1);
+    if (constructorNum > MIN_NUM_DRIVER) {
+      setConstructorNum((prev) => prev - 1);
     }
   };
-
+  const topPointsData = topPointConstructor(result).slice(0, constructorNum);
+  const topWinsData = topWinsConstructor(result).slice(0, constructorNum);
   return (
     <S.ChartContainer>
       <S.ButtonWrap>
         <S.Button onClick={handleAddNum}>
           <TiPlusOutline size={30} fill="#616161" />
         </S.Button>
-        <S.Num>{driverNum}</S.Num>
+        <S.Num>{constructorNum}</S.Num>
         <S.Button onClick={handleMinusNum}>
           <TiMinusOutline size={30} fill="#616161" />
         </S.Button>
@@ -51,14 +52,14 @@ export default function BoxChart({ result }: any) {
         <BarChart
           width={380}
           height={200}
-          data={topPointData}
+          data={topPointsData}
           style={{ fontSize: "13px" }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="constructor" />
           <Tooltip />
           <Legend />
-          <YAxis type="number" />
+          <YAxis />
           <Bar dataKey="points" fill="#840e0e">
             <LabelList dataKey="points" />
           </Bar>
@@ -69,14 +70,15 @@ export default function BoxChart({ result }: any) {
         <BarChart
           width={380}
           height={200}
-          data={topWinData}
+          data={topWinsData}
           style={{ fontSize: "13px" }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="constructor" />
           <Tooltip />
-          <Legend />
           <YAxis />
+          <Legend align="center" />
+
           <Bar dataKey="wins" fill="#b2b475">
             <LabelList dataKey="wins" />
           </Bar>

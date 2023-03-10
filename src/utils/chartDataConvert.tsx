@@ -34,3 +34,31 @@ export const topWinDriver = (data) => {
 
   return topWinDriver_4;
 };
+
+export const topPointConstructor = (data) => {
+  data = data.map((constructor) => {
+    return {
+      constructor: constructor.Constructor.name,
+      points: Number(constructor.points),
+      wins: Number(constructor.wins),
+      position: Number(constructor.position),
+    };
+  });
+
+  return data;
+};
+
+export const topWinsConstructor = (data) => {
+  data = data
+    .map((constructor) => {
+      return {
+        constructor: constructor.Constructor.name,
+        points: Number(constructor.points),
+        wins: Number(constructor.wins),
+        position: Number(constructor.position),
+      };
+    })
+    .sort((a, b) => b.wins - a.wins);
+
+  return data;
+};
