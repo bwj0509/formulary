@@ -47,7 +47,7 @@ export default function NextRace({ nextRace }) {
           <S.RaceDay>{monthName}</S.RaceDay>
         </S.RaceDate>
         <S.Img
-          src="/images/saudi.png"
+          src="/images/australia.jpg"
           alt="saudi"
           width={48}
           height={27}
