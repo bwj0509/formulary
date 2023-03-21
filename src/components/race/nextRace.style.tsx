@@ -13,7 +13,7 @@ export const Container = styled.main`
 `;
 
 export const SkeletonContainer = styled(Container)`
-  opacity: 0.7;
+  position: relative;
 `;
 
 export const Round = styled.div`
@@ -65,6 +65,13 @@ export const Img = styled(Image)`
   border-radius: 5px;
 `;
 
+export const ImgSkeleton = styled.div`
+  width: 48px;
+  height: 27px;
+  background-color: #e4e4e4;
+  border-radius: 5px;
+`;
+
 export const Clock = styled.div`
   font-size: 40px;
   text-align: center;
@@ -111,4 +118,17 @@ export const SessionTime = styled.span`
   padding: 5px 10px;
   min-width: 80px;
   font-size: 13px;
+`;
+
+export const SkeletonContents = styled.div`
+  opacity: 0.2;
+`;
+
+export const SpinerWrap = styled.div`
+  position: absolute;
+  top: 50%;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 `;
