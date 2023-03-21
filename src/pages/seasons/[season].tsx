@@ -42,7 +42,11 @@ export default function Season() {
         <Link href={`/seasons/drivers/${season}`}>
           <S.Box>Drivers</S.Box>
         </Link>
-        <S.Box>Races</S.Box>
+        <S.Box disable>
+          <ImNotification size={30} fill="#ffe100" />
+          <div>Races</div>
+          <S.Description>Under development</S.Description>
+        </S.Box>
         <Link href={`/seasons/driverStanding/${season}`}>
           <S.Box>Driver Standings</S.Box>
         </Link>

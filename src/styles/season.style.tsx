@@ -62,5 +62,5 @@ export const Description = styled.div`
   display: flex;
   align-items: center;
   font-size: 12px;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
