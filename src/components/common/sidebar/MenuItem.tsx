@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 interface MenuItemProps {
   children: string;
-  url?: string;
+  url: string;
   setIsSideOpen: Function;
 }
 

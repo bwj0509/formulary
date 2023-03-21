@@ -3,6 +3,7 @@ import Fomulalogo from "public/svg/fomulalogo.svg";
 import * as S from "@/components/common/header/header.style";
 import Link from "next/link";
 import SidebarMenuItem from "@/components/common/sidebar/MenuItem";
+import dayjs from "dayjs";
 
 export default function Header() {
   const [isSideOpen, setIsSideOpen] = useState(false);
@@ -10,6 +11,8 @@ export default function Header() {
   const handleSideStatus = () => {
     setIsSideOpen((prev) => !prev);
   };
+
+  const nowYear = dayjs().year();
 
   return (
     <div>
@@ -26,7 +29,10 @@ export default function Header() {
         <SidebarMenuItem url="seasons" setIsSideOpen={setIsSideOpen}>
           Past Seasons
         </SidebarMenuItem>
-        <SidebarMenuItem setIsSideOpen={setIsSideOpen}>
+        <SidebarMenuItem
+          url={`seasons/${nowYear}`}
+          setIsSideOpen={setIsSideOpen}
+        >
           Current Season
         </SidebarMenuItem>
         <SidebarMenuItem url="about" setIsSideOpen={setIsSideOpen}>
